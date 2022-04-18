@@ -1,12 +1,11 @@
 import React from "react";
-import { Layer, Stage, Text, Line, Circle } from "react-konva";
+import { Layer, Stage, Text } from "react-konva";
 // import Walls from "../../entities/Walls";
 import useRooms from "../../hooks/useRooms";
 import Room from "../molecules/Room";
 
 const Floormap = () => {
   const [rooms] = useRooms();
-  const anotate = false;
   return (
     <Stage width={600} height={600}>
       <Layer>

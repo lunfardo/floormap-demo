@@ -1,8 +1,8 @@
-import React, { useState, useMemo } from "react";
+import { useState } from "react";
 import ROOMS from "../resources/rooms.json";
 
 const useRooms = (): [Array<Room>] => {
-  const [rooms, setRooms] = useState(ROOMS);
+  const [rooms] = useState(ROOMS);
   return [rooms];
 };
 
