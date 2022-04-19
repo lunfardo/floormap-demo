@@ -15,7 +15,11 @@ const EventList: React.FC<EventListProps> = ({ selectedRoomKey, events }) => {
     <div>
       <h3>Event List for the room: {room.name}</h3>
       {events.map((event) => (
-        <h2>{event.description}</h2>
+        <>
+          <h2>{event.description}</h2>
+          <button>Sign up</button>
+          <hr />
+        </>
       ))}
     </div>
   );
