@@ -1,20 +1,26 @@
 export {};
 
 declare global {
-  interface Point {
+  type Point = {
     x: number;
     y: number;
-  }
+  };
 
-  interface Wall {
+  type Wall = {
     start: Point;
     end: Point;
     color?: string;
-  }
+  };
 
-  interface Room {
+  type Room = {
     name: string;
     limitWalls: Array<Wall>;
     color?: string;
-  }
+  };
+
+  type RoomEvent = {
+    atRoom: string;
+    priority: string;
+    description: string;
+  };
 }

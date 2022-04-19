@@ -1,0 +1,22 @@
+[
+  {
+    "atRoom": "room1",
+    "priority": "low",
+    "description": "some low event"
+  },
+  {
+    "atRoom": "room2",
+    "priority": "medium",
+    "description": "some medium event"
+  },
+  {
+    "atRoom": "room3",
+    "priority": "low",
+    "description": "some low event"
+  },
+  {
+    "atRoom": "room3",
+    "priority": "high",
+    "description": "some high event"
+  }
+]
