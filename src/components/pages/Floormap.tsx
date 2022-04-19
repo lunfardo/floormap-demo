@@ -30,7 +30,6 @@ const Floormap: React.FC<FloormapProps> = ({
               index={indexRoom}
               annotate={isAnnotationOn}
               onClick={() => {
-                alert(room.name);
                 setSelectedRoom(room.name);
               }}
             />
