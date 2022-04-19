@@ -8,18 +8,20 @@ import EventList from "../organisms/EventList";
 type FloormapProps = {
   isAnnotationOn: boolean;
   isShowingEvents: boolean;
+  scale: number;
 };
 
 const Floormap: React.FC<FloormapProps> = ({
   isAnnotationOn,
   isShowingEvents,
+  scale,
 }) => {
   const [rooms] = useRooms();
   const [selectedRoomKey, setSelectedRoom] = useState<null | string>(null);
   const [events] = useEvents(selectedRoomKey);
   return (
     <>
-      <Stage width={600} height={600}>
+      <Stage scaleX={scale} scaleY={scale} width={600} height={600}>
         <Layer>
           <Text text="Testing Map" fontSize={15} fill="white" />
 
