@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Layer, Stage, Text } from "react-konva";
 import useEvents from "../../hooks/useEvents";
-// import Walls from "../../entities/Walls";
 import useRooms from "../../hooks/useRooms";
 import Room from "../molecules/Room";
 import EventList from "../organisms/EventList";
