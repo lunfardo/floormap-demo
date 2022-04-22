@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Floormap from "./components/pages/Floormap";
+import useWheelScroll from "./hooks/useWheelScroll";
 
 function App() {
   const [isAnnotationOn, setIsAnnotationOn] = useState(false);
   const [isShowingEvents, setIsShowingEvents] = useState(false);
   const [scale, setScale] = useState(1);
+  const [wheelpos] = useWheelScroll();
 
   return (
     <>
@@ -22,7 +24,7 @@ function App() {
         style={{ height: "600px", width: "600px", background: "black" }}
       >
         <Floormap
-          scale={scale}
+          scale={scale + wheelpos / 1000}
           isAnnotationOn={isAnnotationOn}
           isShowingEvents={isShowingEvents}
         />
