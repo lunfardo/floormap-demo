@@ -2,10 +2,10 @@ import { useState } from "react";
 
 const useWheelScroll = (): [number] => {
   const [scrollPos, setScrollPos] = useState(0);
-  const zoomChange = (event: WheelEvent) => {
+  const onZoomChange = (event: WheelEvent) => {
     setScrollPos(scrollPos - event.deltaY);
   };
-  window.addEventListener("wheel", zoomChange);
+  window.addEventListener("wheel", onZoomChange);
   return [scrollPos];
 };
 

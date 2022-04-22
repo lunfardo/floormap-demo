@@ -9,7 +9,6 @@ const DebugMenu: React.FC<DebugMenuProps> = ({ setMapState }) => {
       <button
         type="button"
         onClick={() => {
-          console.log("click anotation");
           setMapState((mapState) => ({
             ...mapState,
             isAnnotationOn: !mapState.isAnnotationOn,

@@ -27,6 +27,7 @@ declare global {
   type MapState = {
     isAnnotationOn: boolean;
     isShowingEvents: boolean;
+    isShowingDebugMenu: boolean;
     scale: number;
   };
 }

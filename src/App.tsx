@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import DebugMenu from "./components/organisms/DebugMenu";
 import Floormap from "./components/pages/Floormap";
+import useGlobalKeyPress from "./hooks/useGlobalKeyPress";
 import useWheelScroll from "./hooks/useWheelScroll";
 
 function App() {
@@ -9,13 +10,25 @@ function App() {
     isAnnotationOn: false,
     isShowingEvents: false,
     scale: 1,
+    isShowingDebugMenu: false,
   });
   const [wheelpos] = useWheelScroll();
+  const [keyPressed, resetKey] = useGlobalKeyPress();
+
+  useEffect(() => {
+    if (keyPressed.toLocaleUpperCase() === "M") {
+      setMapState((mapState) => ({
+        ...mapState,
+        isShowingDebugMenu: !mapState.isShowingDebugMenu,
+      }));
+      resetKey();
+    }
+  }, [keyPressed, resetKey]);
 
   return (
     <>
       <div style={{ position: "absolute", top: 20, right: 20, zIndex: 4 }}>
-        <DebugMenu setMapState={setMapState} />
+        {mapState.isShowingDebugMenu && <DebugMenu setMapState={setMapState} />}
       </div>
       <div
         className="App"
