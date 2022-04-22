@@ -21,7 +21,12 @@ const Floormap: React.FC<FloormapProps> = ({
   const [events] = useEvents(selectedRoomKey);
   return (
     <>
-      <Stage scaleX={scale} scaleY={scale} width={600} height={600}>
+      <Stage
+        scaleX={scale}
+        scaleY={scale}
+        width={window.innerWidth}
+        height={window.innerHeight}
+      >
         <Layer>
           <Text text="Testing Map" fontSize={15} fill="white" />
 

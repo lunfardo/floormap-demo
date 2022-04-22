@@ -23,4 +23,10 @@ declare global {
     priority: string;
     description: string;
   };
+
+  type MapState = {
+    isAnnotationOn: boolean;
+    isShowingEvents: boolean;
+    scale: number;
+  };
 }

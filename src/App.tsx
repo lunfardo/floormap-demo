@@ -1,32 +1,34 @@
 import { useState } from "react";
 import "./App.css";
+import DebugMenu from "./components/organisms/DebugMenu";
 import Floormap from "./components/pages/Floormap";
 import useWheelScroll from "./hooks/useWheelScroll";
 
 function App() {
-  const [isAnnotationOn, setIsAnnotationOn] = useState(false);
-  const [isShowingEvents, setIsShowingEvents] = useState(false);
-  const [scale, setScale] = useState(1);
+  const [mapState, setMapState] = useState<MapState>({
+    isAnnotationOn: false,
+    isShowingEvents: false,
+    scale: 1,
+  });
   const [wheelpos] = useWheelScroll();
 
   return (
     <>
-      <button onClick={() => setIsAnnotationOn(!isAnnotationOn)}>
-        Show room names
-      </button>
-      <button onClick={() => setIsShowingEvents(!isShowingEvents)}>
-        Show events
-      </button>
-      <button onClick={() => setScale(scale + 0.1)}>Zoom in</button>
-      <button onClick={() => setScale(scale - 0.1)}>Zoom out</button>
+      <div style={{ position: "absolute", top: 20, right: 20, zIndex: 4 }}>
+        <DebugMenu setMapState={setMapState} />
+      </div>
       <div
         className="App"
-        style={{ height: "600px", width: "600px", background: "black" }}
+        style={{
+          height: window.innerHeight,
+          width: window.innerWidth,
+          background: "black",
+        }}
       >
         <Floormap
-          scale={scale + wheelpos / 1000}
-          isAnnotationOn={isAnnotationOn}
-          isShowingEvents={isShowingEvents}
+          scale={mapState.scale + wheelpos / 1000}
+          isAnnotationOn={mapState.isAnnotationOn}
+          isShowingEvents={mapState.isShowingEvents}
         />
       </div>
     </>
