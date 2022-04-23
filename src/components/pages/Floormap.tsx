@@ -6,6 +6,7 @@ import Room from "../molecules/Room";
 import EventList from "../organisms/EventList";
 
 type FloormapProps = {
+  windowDimensions: WindowDimensions;
   isAnnotationOn: boolean;
   isShowingEvents: boolean;
   scale: number;
@@ -15,6 +16,7 @@ const Floormap: React.FC<FloormapProps> = ({
   isAnnotationOn,
   isShowingEvents,
   scale,
+  windowDimensions,
 }) => {
   const [rooms] = useRooms();
   const [selectedRoomKey, setSelectedRoom] = useState<null | string>(null);
@@ -24,8 +26,8 @@ const Floormap: React.FC<FloormapProps> = ({
       <Stage
         scaleX={scale}
         scaleY={scale}
-        width={window.innerWidth}
-        height={window.innerHeight}
+        width={windowDimensions.width}
+        height={windowDimensions.height}
       >
         <Layer>
           <Text text="Testing Map" fontSize={15} fill="white" />
