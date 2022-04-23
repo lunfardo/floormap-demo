@@ -13,6 +13,7 @@ function App() {
     isShowingEvents: false,
     scale: 1,
     isShowingDebugMenu: false,
+    isShowingModalRoomInfo: false,
   });
   const [wheelpos] = useWheelScroll();
   const [keyPressed, resetKey] = useGlobalKeyPress();
@@ -30,14 +31,14 @@ function App() {
 
   return (
     <>
-      <div style={{ position: "absolute", top: 20, right: 20, zIndex: 4 }}>
-        {mapState.isShowingDebugMenu && <DebugMenu setMapState={setMapState} />}
-      </div>
-      <Modal>
-        <div>
-          <h3>nachito</h3>
-        </div>
-      </Modal>
+      {mapState.isShowingDebugMenu && <DebugMenu setMapState={setMapState} />}
+      {mapState.isShowingModalRoomInfo && (
+        <Modal>
+          <div>
+            <h3>nachito</h3>
+          </div>
+        </Modal>
+      )}
       <div
         className="App"
         style={{

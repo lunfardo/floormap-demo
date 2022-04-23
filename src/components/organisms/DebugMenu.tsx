@@ -5,7 +5,7 @@ type DebugMenuProps = {
 };
 const DebugMenu: React.FC<DebugMenuProps> = ({ setMapState }) => {
   return (
-    <div>
+    <div style={{ position: "absolute", top: 20, right: 20, zIndex: 4 }}>
       <button
         type="button"
         onClick={() => {
