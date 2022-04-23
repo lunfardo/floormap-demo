@@ -11,9 +11,11 @@ const useWindowsDimensions = (): [WindowDimensions] => {
       height: window.innerHeight,
     });
   }, []);
+
   useEffect(() => {
     window.addEventListener("resize", onWindowsResize);
   }, [onWindowsResize]);
+
   return [windowDimensions];
 };
 
