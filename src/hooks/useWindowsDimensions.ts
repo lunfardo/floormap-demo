@@ -5,6 +5,7 @@ const useWindowsDimensions = (): [WindowDimensions] => {
     width: window.innerWidth,
     height: window.innerHeight,
   });
+
   const onWindowsResize = useCallback(() => {
     setWindowDimensions({
       width: window.innerWidth,
