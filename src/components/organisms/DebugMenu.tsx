@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import AppStateContext from "../../contexts/AppStateContext";
+import useShortcuts from "../../hooks/useShortcuts";
 
-type DebugMenuProps = {
-  setMapState: React.Dispatch<React.SetStateAction<MapState>>;
-};
-const DebugMenu: React.FC<DebugMenuProps> = ({ setMapState }) => {
+const DebugMenu: React.FC = () => {
+  const [mapState, setMapState] = useContext(AppStateContext);
+  useShortcuts();
+
+  if (!mapState.isShowingDebugMenu) {
+    return null;
+  }
+
   return (
     <div style={{ position: "absolute", top: 20, right: 20, zIndex: 4 }}>
       <button

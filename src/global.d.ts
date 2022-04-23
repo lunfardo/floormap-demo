@@ -36,4 +36,9 @@ declare global {
     width: number;
     height: number;
   };
+
+  type AppStateContext = [
+    MapState,
+    React.Dispatch<React.SetStateAction<MapState>>
+  ];
 }
