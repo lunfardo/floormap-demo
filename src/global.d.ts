@@ -28,6 +28,12 @@ declare global {
     isAnnotationOn: boolean;
     isShowingEvents: boolean;
     isShowingDebugMenu: boolean;
+    isShowingModalRoomInfo: boolean;
     scale: number;
+  };
+
+  type WindowDimensions = {
+    width: number;
+    height: number;
   };
 }
