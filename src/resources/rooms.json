@@ -212,5 +212,175 @@
         "diffY": 0
       }
     ]
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 0,
+      "y": 68
+    },
+    "height": 6,
+    "width": 8
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 0,
+      "y": 74
+    },
+    "height": 6,
+    "width": 8
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 0,
+      "y": 80
+    },
+    "height": 6,
+    "width": 8
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 12,
+      "y": 62
+    },
+    "height": 6,
+    "width": 8
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 12,
+      "y": 68
+    },
+    "height": 6,
+    "width": 8
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 12,
+      "y": 74
+    },
+    "height": 6,
+    "width": 8
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 12,
+      "y": 80
+    },
+    "height": 6,
+    "width": 8
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 0,
+      "y": 86
+    },
+    "height": 3,
+    "width": 4
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 4,
+      "y": 86
+    },
+    "height": 3,
+    "width": 4
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 8,
+      "y": 86
+    },
+    "height": 3,
+    "width": 4
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 12,
+      "y": 86
+    },
+    "height": 3,
+    "width": 4
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 16,
+      "y": 86
+    },
+    "height": 3,
+    "width": 4
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 20,
+      "y": 62
+    },
+    "height": 12,
+    "width": 21
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 20,
+      "y": 74
+    },
+    "height": 15,
+    "width": 21
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 41,
+      "y": 62
+    },
+    "height": 15,
+    "width": 13
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 41,
+      "y": 77
+    },
+    "height": 12,
+    "width": 13
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 63,
+      "y": 62
+    },
+    "height": 25,
+    "width": 30
   }
 ]
