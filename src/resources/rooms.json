@@ -3,11 +3,11 @@
     "name": "a",
     "type": "rectangle",
     "origin": {
-      "x": 0,
+      "x": 6,
       "y": 0
     },
     "height": 11,
-    "width": 13
+    "width": 7
   },
   {
     "name": "b",
@@ -55,6 +55,10 @@
     "origin": {
       "x": 0,
       "y": 11
+    },
+    "center": {
+      "x": 34,
+      "y": 16.5
     },
     "diffPoints": [
       {
@@ -140,6 +144,10 @@
       "x": 91,
       "y": 7
     },
+    "center": {
+      "x": 102,
+      "y": 22.5
+    },
     "diffPoints": [
       {
         "diffX": 22,
@@ -186,6 +194,10 @@
   {
     "name": "o",
     "type": "multipoint",
+    "center": {
+      "x": 6,
+      "y": 65
+    },
     "origin": {
       "x": 0,
       "y": 62

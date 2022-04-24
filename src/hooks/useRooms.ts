@@ -54,8 +54,8 @@ const useRooms = (): [Array<Room>] => {
           name: rawRoom.name,
           color: rawRoom.color,
           center: {
-            x: 13,
-            y: 16,
+            x: rawRoom.center.x,
+            y: rawRoom.center.y,
           },
           points,
         });
