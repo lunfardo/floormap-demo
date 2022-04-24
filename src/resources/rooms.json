@@ -1,6 +1,6 @@
 [
   {
-    "name": "new-type",
+    "name": "a",
     "type": "rectangle",
     "origin": {
       "x": 0,
@@ -10,7 +10,7 @@
     "width": 13
   },
   {
-    "name": "new-type",
+    "name": "b",
     "type": "rectangle",
     "origin": {
       "x": 13,
@@ -20,7 +20,7 @@
     "width": 10
   },
   {
-    "name": "new-type",
+    "name": "c",
     "type": "rectangle",
     "origin": {
       "x": 23,
@@ -30,7 +30,7 @@
     "width": 16
   },
   {
-    "name": "new-type",
+    "name": "d",
     "type": "rectangle",
     "origin": {
       "x": 39,
@@ -40,7 +40,7 @@
     "width": 17
   },
   {
-    "name": "new-type",
+    "name": "e",
     "type": "rectangle",
     "origin": {
       "x": 39,
@@ -50,7 +50,7 @@
     "width": 17
   },
   {
-    "name": "room1",
+    "name": "f",
     "type": "multipoint",
     "origin": {
       "x": 0,
@@ -84,7 +84,7 @@
     ]
   },
   {
-    "name": "new-type",
+    "name": "g",
     "type": "rectangle",
     "origin": {
       "x": 0,
@@ -94,7 +94,7 @@
     "width": 32
   },
   {
-    "name": "new-type",
+    "name": "h",
     "type": "rectangle",
     "origin": {
       "x": 32,
@@ -104,7 +104,7 @@
     "width": 16
   },
   {
-    "name": "new-type",
+    "name": "i",
     "type": "rectangle",
     "origin": {
       "x": 48,
@@ -114,7 +114,7 @@
     "width": 19
   },
   {
-    "name": "new-type",
+    "name": "j",
     "type": "rectangle",
     "origin": {
       "x": 0,
@@ -124,7 +124,7 @@
     "width": 68
   },
   {
-    "name": "new-type",
+    "name": "k",
     "type": "rectangle",
     "origin": {
       "x": 67,
@@ -134,7 +134,7 @@
     "width": 24
   },
   {
-    "name": "room1",
+    "name": "l",
     "type": "multipoint",
     "origin": {
       "x": 91,
@@ -164,7 +164,7 @@
     ]
   },
   {
-    "name": "new-type",
+    "name": "m",
     "type": "rectangle",
     "origin": {
       "x": 80,
@@ -174,7 +174,7 @@
     "width": 21
   },
   {
-    "name": "new-type",
+    "name": "n",
     "type": "rectangle",
     "origin": {
       "x": 101,
@@ -184,7 +184,7 @@
     "width": 12
   },
   {
-    "name": "room1",
+    "name": "o",
     "type": "multipoint",
     "origin": {
       "x": 0,
@@ -214,7 +214,7 @@
     ]
   },
   {
-    "name": "new-type",
+    "name": "p",
     "type": "rectangle",
     "origin": {
       "x": 0,
@@ -224,7 +224,7 @@
     "width": 8
   },
   {
-    "name": "new-type",
+    "name": "q",
     "type": "rectangle",
     "origin": {
       "x": 0,
@@ -234,7 +234,7 @@
     "width": 8
   },
   {
-    "name": "new-type",
+    "name": "r",
     "type": "rectangle",
     "origin": {
       "x": 0,
@@ -244,7 +244,7 @@
     "width": 8
   },
   {
-    "name": "new-type",
+    "name": "s",
     "type": "rectangle",
     "origin": {
       "x": 12,
@@ -254,7 +254,7 @@
     "width": 8
   },
   {
-    "name": "new-type",
+    "name": "t",
     "type": "rectangle",
     "origin": {
       "x": 12,
@@ -264,7 +264,7 @@
     "width": 8
   },
   {
-    "name": "new-type",
+    "name": "u",
     "type": "rectangle",
     "origin": {
       "x": 12,
@@ -274,7 +274,7 @@
     "width": 8
   },
   {
-    "name": "new-type",
+    "name": "v",
     "type": "rectangle",
     "origin": {
       "x": 12,
@@ -284,7 +284,7 @@
     "width": 8
   },
   {
-    "name": "new-type",
+    "name": "w",
     "type": "rectangle",
     "origin": {
       "x": 0,
@@ -294,7 +294,7 @@
     "width": 4
   },
   {
-    "name": "new-type",
+    "name": "x",
     "type": "rectangle",
     "origin": {
       "x": 4,
@@ -304,7 +304,7 @@
     "width": 4
   },
   {
-    "name": "new-type",
+    "name": "y",
     "type": "rectangle",
     "origin": {
       "x": 8,
@@ -314,7 +314,7 @@
     "width": 4
   },
   {
-    "name": "new-type",
+    "name": "z",
     "type": "rectangle",
     "origin": {
       "x": 12,
@@ -324,7 +324,7 @@
     "width": 4
   },
   {
-    "name": "new-type",
+    "name": "a1",
     "type": "rectangle",
     "origin": {
       "x": 16,
@@ -334,7 +334,7 @@
     "width": 4
   },
   {
-    "name": "new-type",
+    "name": "a2",
     "type": "rectangle",
     "origin": {
       "x": 20,
@@ -344,7 +344,7 @@
     "width": 21
   },
   {
-    "name": "new-type",
+    "name": "a3",
     "type": "rectangle",
     "origin": {
       "x": 20,
@@ -354,7 +354,7 @@
     "width": 21
   },
   {
-    "name": "new-type",
+    "name": "a4",
     "type": "rectangle",
     "origin": {
       "x": 41,
@@ -364,7 +364,7 @@
     "width": 13
   },
   {
-    "name": "new-type",
+    "name": "a5",
     "type": "rectangle",
     "origin": {
       "x": 41,
@@ -374,7 +374,7 @@
     "width": 13
   },
   {
-    "name": "new-type",
+    "name": "a6",
     "type": "rectangle",
     "origin": {
       "x": 63,
