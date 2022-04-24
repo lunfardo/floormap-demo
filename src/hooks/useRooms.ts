@@ -48,6 +48,40 @@ const useRooms = (): [Array<Room>] => {
           ]),
         });
       }
+      if (rawRoom.type === "rectangle") {
+        rooms.push({
+          name: rawRoom.name,
+          color: rawRoom.color,
+          center: calculateCenterRectangle(
+            {
+              x: rawRoom.origin.x,
+              y: rawRoom.origin.y,
+            },
+            {
+              x: rawRoom.origin.x + rawRoom.width,
+              y: rawRoom.origin.y + rawRoom.height,
+            }
+          ),
+          points: [
+            rawRoom.origin.x,
+            rawRoom.origin.y,
+            rawRoom.origin.x + rawRoom.width,
+            rawRoom.origin.y,
+            rawRoom.origin.x + rawRoom.width,
+            rawRoom.origin.y,
+            rawRoom.origin.x + rawRoom.width,
+            rawRoom.origin.y + rawRoom.height,
+            rawRoom.origin.x + rawRoom.width,
+            rawRoom.origin.y + rawRoom.height,
+            rawRoom.origin.x,
+            rawRoom.origin.y + rawRoom.height,
+            rawRoom.origin.x,
+            rawRoom.origin.y + rawRoom.height,
+            rawRoom.origin.x,
+            rawRoom.origin.y,
+          ],
+        });
+      }
     });
 
     setRooms(rooms);
