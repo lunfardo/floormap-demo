@@ -1,6 +1,17 @@
 [
   {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 200,
+      "y": 50
+    },
+    "height": 100,
+    "width": 50
+  },
+  {
     "name": "room1",
+    "type": "multipoint",
     "limitWalls": [
       {
         "start": {
@@ -46,6 +57,7 @@
   },
   {
     "name": "room2",
+    "type": "multipoint",
     "limitWalls": [
       {
         "start": {
@@ -91,6 +103,7 @@
   },
   {
     "name": "room3",
+    "type": "multipoint",
     "limitWalls": [
       {
         "start": {

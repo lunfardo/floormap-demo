@@ -13,8 +13,9 @@ declare global {
   };
 
   type Room = {
+    center: Point;
     name: string;
-    limitWalls: Array<Wall>;
+    points: Array<number>;
     color?: string;
   };
 
