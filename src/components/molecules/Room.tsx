@@ -1,4 +1,5 @@
-import React from "react";
+import Konva from "konva";
+import React, { useEffect, useRef } from "react";
 import { Line, Text } from "react-konva";
 
 type RoomProps = {
@@ -9,13 +10,19 @@ type RoomProps = {
 };
 
 const Room: React.FC<RoomProps> = ({ index, room, annotate, onClick }) => {
+  const textRef: React.RefObject<Konva.Text> = useRef<Konva.Text>(null);
+  const annotationTextWidth = textRef.current?.textWidth ?? 0;
+  const annotationTextHight = textRef.current?.textHeight ?? 0;
+
   return (
     <>
       <Text
+        ref={textRef}
         visible={annotate}
-        x={room.center.x}
-        y={room.center.y}
+        x={room.center.x - annotationTextWidth / 2}
+        y={room.center.y - annotationTextHight / 2}
         text={room.name}
+        fontSize={2}
         fill="yellow"
       />
       <Line
