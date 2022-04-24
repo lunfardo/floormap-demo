@@ -9,7 +9,7 @@ const AppStateProvider: React.FC<AppStateProviderProps> = ({ children }) => {
   const [mapState, setMapState] = useState<MapState>({
     isAnnotationOn: false,
     isShowingEvents: false,
-    scale: 1,
+    scale: 3,
     isShowingDebugMenu: false,
     isShowingModalRoomInfo: false,
   });
