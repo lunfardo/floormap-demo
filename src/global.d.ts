@@ -6,6 +6,11 @@ declare global {
     y: number;
   };
 
+  type DiffPoint = {
+    diffX: number;
+    diffY: number;
+  };
+
   type Wall = {
     start: Point;
     end: Point;

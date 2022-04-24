@@ -24,8 +24,9 @@ const Room: React.FC<RoomProps> = ({ index, room, annotate, onClick }) => {
         points={room.points}
         closed
         stroke={room?.color ?? "red"}
-        tension={1}
+        tension={0}
         onClick={onClick}
+        strokeWidth={0.5}
       />
     </>
   );

@@ -33,7 +33,8 @@ const Floormap: React.FC = () => {
       >
         <Layer>
           <Text text="Testing Map" fontSize={15} fill="white" />
-
+        </Layer>
+        <Layer offsetX={-30} offsetY={-30} scaleX={2} scaleY={2}>
           {rooms.map((room, indexRoom) => (
             <Room
               key={room.name}
