@@ -13,7 +13,9 @@ type RoomSource =
   | {
       name: string;
       type: "multipoint";
-      limitWalls: Array<Wall>;
+      center: Point;
+      origin: Point;
+      diffPoints: Array<DiffPoint>;
       color?: string;
     };
 
@@ -33,19 +35,29 @@ const useRooms = (): [Array<Room>] => {
     const rooms: Array<Room> = [];
     rawRooms.forEach((rawRoom) => {
       if (rawRoom.type === "multipoint") {
+        let lastPoint: Point = rawRoom.origin;
+        const points = [lastPoint.x, lastPoint.y];
+        rawRoom.diffPoints.forEach((point) => {
+          points.push(
+            lastPoint.x,
+            lastPoint.y,
+            point.diffX + lastPoint.x,
+            point.diffY + lastPoint.y
+          );
+          lastPoint = {
+            x: point.diffX + lastPoint.x,
+            y: point.diffY + lastPoint.y,
+          };
+        });
+
         rooms.push({
           name: rawRoom.name,
           color: rawRoom.color,
-          center: calculateCenterRectangle(
-            rawRoom.limitWalls[0].start,
-            rawRoom.limitWalls[2].start
-          ),
-          points: rawRoom.limitWalls.flatMap((wall) => [
-            wall.start.x,
-            wall.start.y,
-            wall.end.x,
-            wall.end.y,
-          ]),
+          center: {
+            x: 13,
+            y: 16,
+          },
+          points,
         });
       }
       if (rawRoom.type === "rectangle") {
@@ -85,7 +97,7 @@ const useRooms = (): [Array<Room>] => {
     });
 
     setRooms(rooms);
-  }, [ROOMS]);
+  }, []);
   return [rooms];
 };
 
