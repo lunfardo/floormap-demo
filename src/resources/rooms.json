@@ -3,147 +3,213 @@
     "name": "new-type",
     "type": "rectangle",
     "origin": {
-      "x": 200,
-      "y": 50
+      "x": 0,
+      "y": 0
     },
-    "height": 50,
-    "width": 50
+    "height": 11,
+    "width": 13
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 13,
+      "y": 0
+    },
+    "height": 11,
+    "width": 10
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 23,
+      "y": 0
+    },
+    "height": 11,
+    "width": 16
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 39,
+      "y": 0
+    },
+    "height": 11,
+    "width": 17
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 39,
+      "y": 0
+    },
+    "height": 11,
+    "width": 17
   },
   {
     "name": "room1",
     "type": "multipoint",
-    "limitWalls": [
+    "origin": {
+      "x": 0,
+      "y": 11
+    },
+    "diffPoints": [
       {
-        "start": {
-          "x": 50,
-          "y": 50
-        },
-        "end": {
-          "x": 100,
-          "y": 50
-        }
+        "diffX": 56,
+        "diffY": 0
       },
       {
-        "start": {
-          "x": 100,
-          "y": 50
-        },
-        "end": {
-          "x": 100,
-          "y": 100
-        }
+        "diffX": 0,
+        "diffY": -15
       },
       {
-        "start": {
-          "x": 100,
-          "y": 100
-        },
-        "end": {
-          "x": 50,
-          "y": 100
-        }
+        "diffX": 5,
+        "diffY": -4
       },
       {
-        "start": {
-          "x": 50,
-          "y": 100
-        },
-        "end": {
-          "x": 50,
-          "y": 50
-        }
+        "diffX": 6,
+        "diffY": 0
+      },
+      {
+        "diffX": 0,
+        "diffY": 30
+      },
+      {
+        "diffX": -67,
+        "diffY": 0
       }
     ]
   },
   {
-    "name": "room2",
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 0,
+      "y": 22
+    },
+    "height": 9,
+    "width": 32
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 32,
+      "y": 22
+    },
+    "height": 9,
+    "width": 16
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 48,
+      "y": 22
+    },
+    "height": 9,
+    "width": 19
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 0,
+      "y": 31
+    },
+    "height": 31,
+    "width": 68
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 67,
+      "y": -8
+    },
+    "height": 39,
+    "width": 24
+  },
+  {
+    "name": "room1",
     "type": "multipoint",
-    "limitWalls": [
+    "origin": {
+      "x": 91,
+      "y": 7
+    },
+    "diffPoints": [
       {
-        "start": {
-          "x": 100,
-          "y": 50
-        },
-        "end": {
-          "x": 150,
-          "y": 50
-        }
+        "diffX": 22,
+        "diffY": 0
       },
       {
-        "start": {
-          "x": 150,
-          "y": 50
-        },
-        "end": {
-          "x": 150,
-          "y": 100
-        }
+        "diffX": 0,
+        "diffY": 31
       },
       {
-        "start": {
-          "x": 150,
-          "y": 100
-        },
-        "end": {
-          "x": 100,
-          "y": 100
-        }
+        "diffX": -33,
+        "diffY": 0
       },
       {
-        "start": {
-          "x": 100,
-          "y": 100
-        },
-        "end": {
-          "x": 100,
-          "y": 50
-        }
+        "diffX": 0,
+        "diffY": -7
+      },
+      {
+        "diffX": 11,
+        "diffY": 0
       }
     ]
   },
   {
-    "name": "room3",
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 80,
+      "y": 38
+    },
+    "height": 13,
+    "width": 21
+  },
+  {
+    "name": "new-type",
+    "type": "rectangle",
+    "origin": {
+      "x": 101,
+      "y": 38
+    },
+    "height": 13,
+    "width": 12
+  },
+  {
+    "name": "room1",
     "type": "multipoint",
-    "limitWalls": [
+    "origin": {
+      "x": 0,
+      "y": 62
+    },
+    "diffPoints": [
       {
-        "start": {
-          "x": 100,
-          "y": 150
-        },
-        "end": {
-          "x": 150,
-          "y": 150
-        }
+        "diffX": 12,
+        "diffY": 0
       },
       {
-        "start": {
-          "x": 150,
-          "y": 150
-        },
-        "end": {
-          "x": 150,
-          "y": 200
-        }
+        "diffX": 0,
+        "diffY": 24
       },
       {
-        "start": {
-          "x": 150,
-          "y": 200
-        },
-        "end": {
-          "x": 100,
-          "y": 200
-        }
+        "diffX": -4,
+        "diffY": 0
       },
       {
-        "start": {
-          "x": 100,
-          "y": 200
-        },
-        "end": {
-          "x": 100,
-          "y": 150
-        }
+        "diffX": 0,
+        "diffY": -18
+      },
+      {
+        "diffX": -8,
+        "diffY": 0
       }
     ]
   }
