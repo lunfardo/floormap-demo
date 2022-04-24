@@ -40,16 +40,6 @@
     "width": 17
   },
   {
-    "name": "e",
-    "type": "rectangle",
-    "origin": {
-      "x": 39,
-      "y": 0
-    },
-    "height": 11,
-    "width": 17
-  },
-  {
     "name": "f",
     "type": "multipoint",
     "origin": {
