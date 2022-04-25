@@ -1,5 +1,6 @@
 import Konva from "konva";
-import React, { useEffect, useRef } from "react";
+import { KonvaEventObject } from "konva/lib/Node";
+import React, { useRef } from "react";
 import { Line, Text } from "react-konva";
 
 type RoomProps = {
@@ -10,9 +11,33 @@ type RoomProps = {
 };
 
 const Room: React.FC<RoomProps> = ({ index, room, annotate, onClick }) => {
+  const lineRef = React.useRef<Konva.Line>(null);
   const textRef: React.RefObject<Konva.Text> = useRef<Konva.Text>(null);
   const annotationTextWidth = textRef.current?.textWidth ?? 0;
   const annotationTextHight = textRef.current?.textHeight ?? 0;
+  const onClickWrapper = (event: KonvaEventObject<MouseEvent>) => {
+    const shape = event.target;
+
+    shape.to({
+      fill: "yellow",
+      strokeWidth: 1.5,
+      stroke: "white",
+      zIndex: 100,
+      opacity: 0.5,
+      onFinish: () => {
+        shape.to({
+          opacity: 1,
+          strokeWidth: 0.5,
+          fill: null,
+          zIndex: 2,
+          stroke: "red",
+        });
+      },
+    });
+    // similar to stopPropagation
+    event.cancelBubble = true;
+    onClick();
+  };
 
   return (
     <>
@@ -27,12 +52,13 @@ const Room: React.FC<RoomProps> = ({ index, room, annotate, onClick }) => {
       />
       <Line
         key={index}
+        ref={lineRef}
         id={`${index}`}
         points={room.points}
         closed
         stroke={room?.color ?? "red"}
         tension={0}
-        onClick={onClick}
+        onClick={onClickWrapper}
         strokeWidth={0.5}
       />
     </>
