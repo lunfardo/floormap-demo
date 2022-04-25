@@ -1,5 +1,5 @@
 import "./App.css";
-import Modal from "./atoms/Modal/Modal";
+import Modal from "./components/atoms/Modal/Modal";
 import DebugMenu from "./components/organisms/DebugMenu";
 import RoomMenu from "./components/organisms/RoomMenu";
 import UserControls from "./components/organisms/UserControls";

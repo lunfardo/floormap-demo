@@ -1,6 +1,6 @@
 import { useCallback, useContext } from "react";
-import Button from "../../atoms/Button/Button";
 import AppStateContext from "../../contexts/AppStateContext";
+import Button from "../atoms/Button/Button";
 
 const UserControls = () => {
   const [, setMapState] = useContext(AppStateContext);

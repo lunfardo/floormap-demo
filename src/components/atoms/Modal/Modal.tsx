@@ -1,5 +1,5 @@
 import { ReactElement, useContext } from "react";
-import AppStateContext from "../../contexts/AppStateContext";
+import AppStateContext from "../../../contexts/AppStateContext";
 import "./Modal.css";
 
 type ModalProps = {
