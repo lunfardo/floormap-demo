@@ -1,6 +1,7 @@
 import "./App.css";
 import Modal from "./atoms/Modal/Modal";
 import DebugMenu from "./components/organisms/DebugMenu";
+import RoomMenu from "./components/organisms/RoomMenu";
 import UserControls from "./components/organisms/UserControls";
 import Floormap from "./components/pages/Floormap";
 import AppStateProvider from "./providers/AppStateProvider";
@@ -17,6 +18,7 @@ const App = () => {
         </Modal>
         <Floormap />
         <UserControls />
+        <RoomMenu />
       </>
     </AppStateProvider>
   );
