@@ -6,11 +6,11 @@ const useGlobalKeyPress = (): [string] => {
     setKeypressed(event.key);
     setTimeout(() => {
       setKeypressed("");
-    }, 300);
+    }, 100);
   }, []);
 
   useEffect(() => {
-    window.addEventListener("keypress", onKeyPressed);
+    window.addEventListener("keydown", onKeyPressed);
   }, [onKeyPressed]);
 
   // const resetKey = useCallback(() => {

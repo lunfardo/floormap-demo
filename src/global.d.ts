@@ -36,6 +36,7 @@ declare global {
     isShowingDebugMenu: boolean;
     isShowingModalRoomInfo: boolean;
     scale: number;
+    offset: DiffPoint;
   };
 
   type WindowDimensions = {

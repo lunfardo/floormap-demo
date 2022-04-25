@@ -19,6 +19,19 @@ const useShortcuts = (): void => {
         isShowingModalRoomInfo: !mapState.isShowingModalRoomInfo,
       }));
     }
+
+    if (keyPressed === "ArrowLeft") {
+      setMapState((mapState) => ({
+        ...mapState,
+        offset: { ...mapState.offset, diffX: mapState.offset.diffX - 2 },
+      }));
+    }
+    if (keyPressed === "ArrowRight") {
+      setMapState((mapState) => ({
+        ...mapState,
+        offset: { ...mapState.offset, diffX: mapState.offset.diffX + 2 },
+      }));
+    }
   }, [keyPressed, setMapState]);
 };
 

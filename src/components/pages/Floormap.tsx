@@ -1,21 +1,21 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Layer, Stage, Text } from "react-konva";
 import AppStateContext from "../../contexts/AppStateContext";
-import useEvents from "../../hooks/useEvents";
 import useRooms from "../../hooks/useRooms";
+import useUserTouch from "../../hooks/useUserTouch";
 import useWheelScroll from "../../hooks/useWheelScroll";
 import useWindowsDimensions from "../../hooks/useWindowsDimensions";
 import Room from "../molecules/Room";
-import EventList from "../organisms/EventList";
 
 const Floormap: React.FC = () => {
   const [windowDimensions] = useWindowsDimensions();
-  const [mapState] = useContext(AppStateContext);
+  const [{ offset, scale, isAnnotationOn }] = useContext(AppStateContext);
   const [wheelpos] = useWheelScroll();
 
   const [rooms] = useRooms();
-  const [selectedRoomKey, setSelectedRoom] = useState<null | string>(null);
-  const [events] = useEvents(selectedRoomKey);
+  // const [selectedRoomKey, setSelectedRoom] = useState<null | string>(null);
+  // const [events] = useEvents(selectedRoomKey);
+  useUserTouch();
   return (
     <div
       className="App"
@@ -26,31 +26,35 @@ const Floormap: React.FC = () => {
       }}
     >
       <Stage
-        scaleX={mapState.scale + wheelpos / 1000}
-        scaleY={mapState.scale + wheelpos / 1000}
+        scaleX={scale + wheelpos / 1000}
+        scaleY={scale + wheelpos / 1000}
         width={windowDimensions.width}
         height={windowDimensions.height}
       >
         <Layer>
           <Text text="Demo Map" fontSize={15} fill="white" />
         </Layer>
-        <Layer offsetX={-30} offsetY={-30} scaleX={2} scaleY={2}>
+        <Layer
+          x={offset.diffX}
+          y={offset.diffY}
+          offsetX={-30}
+          offsetY={-30}
+          scaleX={2}
+          scaleY={2}
+        >
           {rooms.map((room, indexRoom) => (
             <Room
+              annotate={isAnnotationOn}
               key={room.name}
               room={room}
               index={indexRoom}
-              annotate={mapState.isAnnotationOn}
               onClick={() => {
-                setSelectedRoom(room.name);
+                // setSelectedRoom(room.name);
               }}
             />
           ))}
         </Layer>
       </Stage>
-      {mapState.isShowingEvents && selectedRoomKey !== null && (
-        <EventList selectedRoomKey={selectedRoomKey} events={events} />
-      )}
     </div>
   );
 };
