@@ -4,18 +4,25 @@ import React, { useRef } from "react";
 import { Line, Text } from "react-konva";
 
 type RoomProps = {
+  offset: DiffPoint;
   index: number;
   room: Room;
   annotate: boolean;
   onClick: () => void;
 };
 
-const Room: React.FC<RoomProps> = ({ index, room, annotate, onClick }) => {
+const Room: React.FC<RoomProps> = ({
+  index,
+  room,
+  annotate,
+  onClick,
+  offset,
+}) => {
   const lineRef = React.useRef<Konva.Line>(null);
   const textRef: React.RefObject<Konva.Text> = useRef<Konva.Text>(null);
   const annotationTextWidth = textRef.current?.textWidth ?? 0;
   const annotationTextHight = textRef.current?.textHeight ?? 0;
-  const onClickWrapper = (event: KonvaEventObject<MouseEvent>) => {
+  const onPressWrapper = (event: KonvaEventObject<MouseEvent>) => {
     const shape = event.target;
 
     shape.to({
@@ -58,7 +65,8 @@ const Room: React.FC<RoomProps> = ({ index, room, annotate, onClick }) => {
         closed
         stroke={room?.color ?? "red"}
         tension={0}
-        onClick={onClickWrapper}
+        onClick={onPressWrapper}
+        onTap={onPressWrapper}
         strokeWidth={0.5}
       />
     </>
