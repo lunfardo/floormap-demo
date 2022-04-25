@@ -1,8 +1,19 @@
 .button {
-  background-color: rgb(6, 117, 43);
   color:white;
   border: none;
   font-size: 16px;
   border-radius: 4px;
+  user-select: "none";
+}
+
+.button-primary {
+  background-color: rgb(6, 117, 43);
   padding: 8px 16px;
+
+}
+
+.button-secondary {
+  background-color: brown;
+  padding: 4px 8px;
+
 }

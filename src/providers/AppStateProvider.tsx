@@ -12,10 +12,12 @@ const AppStateProvider: React.FC<AppStateProviderProps> = ({ children }) => {
     scale: 3,
     isShowingDebugMenu: false,
     isShowingModalRoomInfo: false,
+    isShowingRoomMenu: false,
     offset: {
       diffX: 25,
       diffY: 5,
     },
+    selectedRoomName: null,
   });
 
   return (

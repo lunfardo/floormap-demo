@@ -4,7 +4,7 @@ import Button from "../atoms/Button/Button";
 import FloatMenu from "../atoms/FloatMenu/FloatMenu";
 
 const UserControls = () => {
-  const [, setMapState] = useContext(AppStateContext);
+  const [{ isShowingModalRoomInfo }, setMapState] = useContext(AppStateContext);
   const setNewOffset = useCallback(
     (newOffset: DiffPoint) => {
       setMapState((mapState) => ({ ...mapState, offset: newOffset }));
@@ -12,12 +12,19 @@ const UserControls = () => {
     [setMapState]
   );
 
-  const zoomChange = useCallback((zoomDiff: number) => {
-    setMapState((mapState) => ({
-      ...mapState,
-      scale: mapState.scale + zoomDiff,
-    }));
-  }, []);
+  const zoomChange = useCallback(
+    (zoomDiff: number) => {
+      setMapState((mapState) => ({
+        ...mapState,
+        scale: mapState.scale + zoomDiff,
+      }));
+    },
+    [setMapState]
+  );
+
+  if (isShowingModalRoomInfo) {
+    return null;
+  }
 
   return (
     <FloatMenu bottom={20} left={20}>

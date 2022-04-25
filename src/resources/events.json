@@ -1,21 +1,21 @@
 [
   {
-    "atRoom": "room1",
+    "atRoom": "a",
     "priority": "low",
     "description": "some low event"
   },
   {
-    "atRoom": "room2",
+    "atRoom": "a",
     "priority": "medium",
     "description": "some medium event"
   },
   {
-    "atRoom": "room3",
+    "atRoom": "b",
     "priority": "low",
     "description": "some low event"
   },
   {
-    "atRoom": "room3",
+    "atRoom": "j",
     "priority": "high",
     "description": "some high event"
   }

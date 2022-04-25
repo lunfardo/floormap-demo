@@ -1,7 +1,11 @@
 import React, { ButtonHTMLAttributes } from "react";
 import "./Button.css";
 
-const Button: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = (props) => {
-  return <button className="button" {...props}></button>;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "primary" | "secondary";
+}
+
+const Button: React.FC<ButtonProps> = ({ variant = "primary", ...props }) => {
+  return <button className={`button button-${variant}`} {...props}></button>;
 };
 export default Button;

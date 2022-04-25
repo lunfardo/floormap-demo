@@ -8,3 +8,11 @@
   border-radius: 5%;
   opacity: 0.9;
 }
+
+.modal-content{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+}

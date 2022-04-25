@@ -10,13 +10,12 @@ import Room from "../molecules/Room";
 
 const Floormap: React.FC = () => {
   const [windowDimensions] = useWindowsDimensions();
-  const [{ offset, scale, isAnnotationOn }] = useContext(AppStateContext);
+  const [{ offset, scale, isAnnotationOn }, setMapState] =
+    useContext(AppStateContext);
   const [wheelpos] = useWheelScroll();
   const layerRef = useRef<Konva.Layer>(null);
 
   const [rooms] = useRooms();
-  // const [selectedRoomKey, setSelectedRoom] = useState<null | string>(null);
-  // const [events] = useEvents(selectedRoomKey);
   useEffect(() => {
     layerRef.current?.to({
       x: layerRef.current.x() + offset.diffX,
@@ -52,7 +51,11 @@ const Floormap: React.FC = () => {
               room={room}
               index={indexRoom}
               onClick={() => {
-                // setSelectedRoom(room.name);
+                setMapState((mapState) => ({
+                  ...mapState,
+                  isShowingRoomMenu: true,
+                  selectedRoomName: room.name,
+                }));
               }}
             />
           ))}
