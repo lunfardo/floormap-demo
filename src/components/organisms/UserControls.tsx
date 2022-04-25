@@ -10,6 +10,14 @@ const UserControls = () => {
     },
     [setMapState]
   );
+
+  const zoomChange = useCallback((zoomDiff: number) => {
+    setMapState((mapState) => ({
+      ...mapState,
+      scale: mapState.scale + zoomDiff,
+    }));
+  }, []);
+
   return (
     <div style={{ position: "absolute", bottom: 20, left: 20, zIndex: 4 }}>
       <Button onClick={() => setNewOffset({ diffX: 0, diffY: -20 })}>🠕</Button>
@@ -19,6 +27,10 @@ const UserControls = () => {
       <Button onClick={() => document.documentElement.requestFullscreen()}>
         Fullscreen
       </Button>
+
+      <Button onClick={() => zoomChange(1)}>Zoom In</Button>
+
+      <Button onClick={() => zoomChange(-1)}>Zoom Out</Button>
     </div>
   );
 };
