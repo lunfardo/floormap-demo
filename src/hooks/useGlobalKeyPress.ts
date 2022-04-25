@@ -2,9 +2,11 @@ import { useCallback, useEffect, useState } from "react";
 
 const useGlobalKeyPress = (): [string] => {
   const [keyPressed, setKeypressed] = useState("");
+
   const onKeyPressed = useCallback((event: KeyboardEvent) => {
     setKeypressed(event.key);
     setTimeout(() => {
+      //restart keyPressed otherwise wont change when pressing the same key multiple times.
       setKeypressed("");
     }, 100);
   }, []);
@@ -13,9 +15,6 @@ const useGlobalKeyPress = (): [string] => {
     window.addEventListener("keydown", onKeyPressed);
   }, [onKeyPressed]);
 
-  // const resetKey = useCallback(() => {
-  //   setKeypressed("");
-  // }, [setKeypressed]);
   return [keyPressed];
 };
 
