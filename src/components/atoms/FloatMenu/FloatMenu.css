@@ -1,0 +1,7 @@
+.menu-row > * {
+  margin: 0px 8px;
+}
+
+.menu-column > * {
+  margin: 8px 0px;
+}

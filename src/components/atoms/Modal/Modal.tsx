@@ -3,8 +3,9 @@ import AppStateContext from "../../../contexts/AppStateContext";
 import "./Modal.css";
 
 type ModalProps = {
-  children: ReactElement<any, any> | null;
+  children?: React.ReactNode;
 };
+
 const Modal: React.FC<ModalProps> = ({ children }) => {
   const [mapState] = useContext(AppStateContext);
 

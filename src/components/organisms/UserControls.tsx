@@ -1,6 +1,7 @@
 import { useCallback, useContext } from "react";
 import AppStateContext from "../../contexts/AppStateContext";
 import Button from "../atoms/Button/Button";
+import FloatMenu from "../atoms/FloatMenu/FloatMenu";
 
 const UserControls = () => {
   const [, setMapState] = useContext(AppStateContext);
@@ -19,7 +20,7 @@ const UserControls = () => {
   }, []);
 
   return (
-    <div style={{ position: "absolute", bottom: 20, left: 20, zIndex: 4 }}>
+    <FloatMenu bottom={20} left={20}>
       <Button onClick={() => setNewOffset({ diffX: 0, diffY: -20 })}>🠕</Button>
       <Button onClick={() => setNewOffset({ diffX: 0, diffY: 20 })}>🠗</Button>
       <Button onClick={() => setNewOffset({ diffX: -20, diffY: 0 })}>🠔</Button>
@@ -31,7 +32,7 @@ const UserControls = () => {
       <Button onClick={() => zoomChange(1)}>Zoom In</Button>
 
       <Button onClick={() => zoomChange(-1)}>Zoom Out</Button>
-    </div>
+    </FloatMenu>
   );
 };
 

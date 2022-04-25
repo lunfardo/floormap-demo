@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import AppStateContext from "../../contexts/AppStateContext";
 import useShortcuts from "../../hooks/useShortcuts";
+import Button from "../atoms/Button/Button";
+import FloatMenu from "../atoms/FloatMenu/FloatMenu";
 
 const DebugMenu: React.FC = () => {
   const [mapState, setMapState] = useContext(AppStateContext);
@@ -11,8 +13,8 @@ const DebugMenu: React.FC = () => {
   }
 
   return (
-    <div style={{ position: "absolute", top: 20, right: 20, zIndex: 4 }}>
-      <button
+    <FloatMenu top={20} right={20}>
+      <Button
         type="button"
         onClick={() => {
           setMapState((mapState) => ({
@@ -22,8 +24,8 @@ const DebugMenu: React.FC = () => {
         }}
       >
         Show room names
-      </button>
-      <button
+      </Button>
+      <Button
         type="button"
         onClick={() =>
           setMapState((mapState) => ({
@@ -33,30 +35,8 @@ const DebugMenu: React.FC = () => {
         }
       >
         Show events
-      </button>
-      <button
-        type="button"
-        onClick={() =>
-          setMapState((mapState) => ({
-            ...mapState,
-            scale: mapState.scale + 0.1,
-          }))
-        }
-      >
-        Zoom in
-      </button>
-      <button
-        type="button"
-        onClick={() =>
-          setMapState((mapState) => ({
-            ...mapState,
-            scale: mapState.scale - 0.1,
-          }))
-        }
-      >
-        Zoom out
-      </button>
-    </div>
+      </Button>
+    </FloatMenu>
   );
 };
 
