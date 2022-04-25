@@ -23,13 +23,25 @@ const useShortcuts = (): void => {
     if (keyPressed === "ArrowLeft") {
       setMapState((mapState) => ({
         ...mapState,
-        offset: { ...mapState.offset, diffX: mapState.offset.diffX - 2 },
+        offset: { ...mapState.offset, diffX: -20, diffY: 0 },
       }));
     }
     if (keyPressed === "ArrowRight") {
       setMapState((mapState) => ({
         ...mapState,
-        offset: { ...mapState.offset, diffX: mapState.offset.diffX + 2 },
+        offset: { ...mapState.offset, diffX: 20, diffY: 0 },
+      }));
+    }
+    if (keyPressed === "ArrowDown") {
+      setMapState((mapState) => ({
+        ...mapState,
+        offset: { ...mapState.offset, diffX: 0, diffY: 20 },
+      }));
+    }
+    if (keyPressed === "ArrowUp") {
+      setMapState((mapState) => ({
+        ...mapState,
+        offset: { ...mapState.offset, diffX: 0, diffY: -20 },
       }));
     }
   }, [keyPressed, setMapState]);
