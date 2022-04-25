@@ -1,6 +1,6 @@
 import Konva from "konva";
 import { KonvaEventObject } from "konva/lib/Node";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Line, Text } from "react-konva";
 
 type RoomProps = {
@@ -13,7 +13,7 @@ type RoomProps = {
 
 const Room: React.FC<RoomProps> = ({
   index,
-  room,
+  room: { center, name, points, color, animations },
   annotate,
   onClick,
   offset,
@@ -46,14 +46,30 @@ const Room: React.FC<RoomProps> = ({
     onClick();
   };
 
+  useEffect(() => {
+    if (animations.includes("eventAboutToHappen")) {
+      const interval = setInterval(() => {
+        lineRef.current?.to({
+          fill: "white",
+          onFinish: () => {
+            lineRef.current?.to({
+              fill: null,
+            });
+          },
+        });
+      }, 2000);
+      return () => clearInterval(interval);
+    }
+  }, [animations]);
+
   return (
     <>
       <Text
         ref={textRef}
         visible={annotate}
-        x={room.center.x - annotationTextWidth / 2}
-        y={room.center.y - annotationTextHight / 2}
-        text={room.name}
+        x={center.x - annotationTextWidth / 2}
+        y={center.y - annotationTextHight / 2}
+        text={name}
         fontSize={2}
         fill="yellow"
       />
@@ -61,9 +77,9 @@ const Room: React.FC<RoomProps> = ({
         key={index}
         ref={lineRef}
         id={`${index}`}
-        points={room.points}
+        points={points}
         closed
-        stroke={room?.color ?? "red"}
+        stroke={color ?? "red"}
         tension={0}
         onClick={onPressWrapper}
         onTap={onPressWrapper}

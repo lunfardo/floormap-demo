@@ -8,6 +8,7 @@ type RoomSource =
       origin: Point;
       height: number;
       width: number;
+      animations?: Array<"eventAboutToHappen" | "somethingElse">;
       color?: string;
     }
   | {
@@ -16,6 +17,7 @@ type RoomSource =
       center: Point;
       origin: Point;
       diffPoints: Array<DiffPoint>;
+      animations?: Array<"eventAboutToHappen" | "somethingElse">;
       color?: string;
     };
 
@@ -53,6 +55,7 @@ const useRooms = (): [Array<Room>] => {
         rooms.push({
           name: rawRoom.name,
           color: rawRoom.color,
+          animations: rawRoom?.animations ?? [],
           center: {
             x: rawRoom.center.x,
             y: rawRoom.center.y,
@@ -64,6 +67,7 @@ const useRooms = (): [Array<Room>] => {
         rooms.push({
           name: rawRoom.name,
           color: rawRoom.color,
+          animations: rawRoom?.animations ?? [],
           center: calculateCenterRectangle(
             {
               x: rawRoom.origin.x,

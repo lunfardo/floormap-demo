@@ -21,6 +21,7 @@ declare global {
     center: Point;
     name: string;
     points: Array<number>;
+    animations: Array<"eventAboutToHappen" | "somethingElse">;
     color?: string;
   };
 
