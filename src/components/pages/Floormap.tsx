@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import Konva from "konva";
+import React, { useContext, useEffect, useRef } from "react";
 import { Layer, Stage, Text } from "react-konva";
 import AppStateContext from "../../contexts/AppStateContext";
 import useRooms from "../../hooks/useRooms";
@@ -11,10 +12,18 @@ const Floormap: React.FC = () => {
   const [windowDimensions] = useWindowsDimensions();
   const [{ offset, scale, isAnnotationOn }] = useContext(AppStateContext);
   const [wheelpos] = useWheelScroll();
+  const layerRef = useRef<Konva.Layer>(null);
 
   const [rooms] = useRooms();
   // const [selectedRoomKey, setSelectedRoom] = useState<null | string>(null);
   // const [events] = useEvents(selectedRoomKey);
+  useEffect(() => {
+    layerRef.current?.to({
+      x: layerRef.current.x() + offset.diffX,
+      y: layerRef.current.y() + offset.diffY,
+    });
+  }, [offset]);
+
   useUserTouch();
   return (
     <div
@@ -34,16 +43,10 @@ const Floormap: React.FC = () => {
         <Layer>
           <Text text="Demo Map" fontSize={15} fill="white" />
         </Layer>
-        <Layer
-          x={offset.diffX}
-          y={offset.diffY}
-          offsetX={-30}
-          offsetY={-30}
-          scaleX={2}
-          scaleY={2}
-        >
+        <Layer ref={layerRef} offsetX={-30} offsetY={-30} scaleX={2} scaleY={2}>
           {rooms.map((room, indexRoom) => (
             <Room
+              offset={offset}
               annotate={isAnnotationOn}
               key={room.name}
               room={room}
