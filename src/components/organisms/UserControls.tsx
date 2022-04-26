@@ -34,6 +34,8 @@ const UserControls = () => {
           display: "grid",
           gridTemplateColumns: "40px 40px 40px",
           gridAutoRows: "40px 40px",
+          columnGap: "8px",
+          rowGap: "8px",
         }}
       >
         <ArrowButton
