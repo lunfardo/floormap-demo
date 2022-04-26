@@ -22,6 +22,7 @@ const Menu: React.FC<MenuProps> = ({
       className={`menu menu-${direction}`}
       style={{
         position: "absolute",
+        alignItems: "center",
         bottom,
         right,
         top,
