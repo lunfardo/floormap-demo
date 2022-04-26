@@ -31,6 +31,9 @@
   },
   {
     "name": "d",
+    "animations": [
+      "eventAboutToHappen"
+    ],
     "type": "rectangle",
     "origin": {
       "x": 39,
