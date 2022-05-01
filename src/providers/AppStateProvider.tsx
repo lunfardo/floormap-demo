@@ -13,11 +13,13 @@ const AppStateProvider: React.FC<AppStateProviderProps> = ({ children }) => {
     isShowingDebugMenu: false,
     isShowingModalRoomInfo: false,
     isShowingRoomMenu: false,
+    isShowingCoordinates: true,
     offset: {
-      diffX: 25,
-      diffY: 5,
+      diffX: 0,
+      diffY: 0,
     },
     selectedRoomName: null,
+    mapNumberOnDisplay: 1,
   });
 
   return (

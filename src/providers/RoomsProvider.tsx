@@ -1,4 +1,5 @@
-import { ReactElement } from "react";
+import { ReactElement, useContext } from "react";
+import AppStateContext from "../contexts/AppStateContext";
 import RoomsContext from "../contexts/RoomsContext";
 import useRooms from "../hooks/useRooms";
 
@@ -7,7 +8,8 @@ type RoomsProviderProps = {
 };
 
 const RoomsProvider: React.FC<RoomsProviderProps> = ({ children }) => {
-  const [rooms] = useRooms("rooms");
+  const [{ mapNumberOnDisplay }] = useContext(AppStateContext);
+  const [rooms] = useRooms(`rooms${mapNumberOnDisplay}`);
 
   return (
     <RoomsContext.Provider value={rooms}>{children}</RoomsContext.Provider>

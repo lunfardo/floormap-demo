@@ -105,7 +105,7 @@ const useRooms = (roomsFile: string): [Array<Room>] => {
       setRooms(rooms);
     };
     getData();
-  }, []);
+  }, [roomsFile]);
   return [rooms];
 };
 

@@ -34,7 +34,7 @@ const DebugMenu: React.FC = () => {
           }))
         }
       >
-        Show events
+        Show coordinates
       </Button>
     </FloatMenu>
   );

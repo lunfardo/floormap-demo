@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from "react";
 import { Line, Text } from "react-konva";
 
 type RoomProps = {
-  offset: DiffPoint;
   index: number;
   room: Room;
   annotate: boolean;
@@ -16,7 +15,6 @@ const Room: React.FC<RoomProps> = ({
   room: { center, name, points, color, animations },
   annotate,
   onClick,
-  offset,
 }) => {
   const lineRef = React.useRef<Konva.Line>(null);
   const textRef: React.RefObject<Konva.Text> = useRef<Konva.Text>(null);
@@ -26,7 +24,7 @@ const Room: React.FC<RoomProps> = ({
     const shape = event.target;
 
     shape.to({
-      fill: "yellow",
+      fill: "rgba(255, 255, 0, 1)",
       strokeWidth: 1.5,
       stroke: "white",
       zIndex: 100,
@@ -35,7 +33,7 @@ const Room: React.FC<RoomProps> = ({
         shape.to({
           opacity: 1,
           strokeWidth: 0.5,
-          fill: null,
+          fill: "rgba(255, 255, 0, 0)",
           zIndex: 2,
           stroke: "red",
         });

@@ -37,9 +37,11 @@ declare global {
     isShowingDebugMenu: boolean;
     isShowingModalRoomInfo: boolean;
     isShowingRoomMenu: boolean;
+    isShowingCoordinates: boolean;
     scale: number;
     offset: DiffPoint;
     selectedRoomName: string | null;
+    mapNumberOnDisplay: number;
   };
 
   type WindowDimensions = {

@@ -1,16 +1,15 @@
 import Konva from "konva";
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Layer, Stage, Text, Image } from "react-konva";
 import AppStateContext from "../../contexts/AppStateContext";
 import RoomsContext from "../../contexts/RoomsContext";
 import useImage from "../../hooks/useImage.";
-import useRooms from "../../hooks/useRooms";
 import useUserTouch from "../../hooks/useUserTouch";
 import useWindowsDimensions from "../../hooks/useWindowsDimensions";
 import useZoom from "../../hooks/useZoom";
 import Room from "../molecules/Room";
 
-const MAP_OFFSET = 30;
+const INITIAL_MAP_OFFSET = 30;
 const MAP_TO_DATA_FACTOR = 2;
 
 const Floormap: React.FC = () => {
@@ -20,6 +19,14 @@ const Floormap: React.FC = () => {
   const layerRef = useRef<Konva.Layer>(null);
   const rooms = useContext(RoomsContext);
   const [image] = useImage("/floormap-demo/map_picture.png");
+  const [positionLabel, setPositionLabel] = useState("");
+
+  useEffect(() => {
+    layerRef.current?.to({
+      x: layerRef.current.x() + offset.diffX,
+      y: layerRef.current.y() + offset.diffY,
+    });
+  }, [offset]);
 
   useUserTouch();
   return (
@@ -38,23 +45,25 @@ const Floormap: React.FC = () => {
         height={windowDimensions.height}
         onMouseMove={(evt) => {
           const n = zoom + MAP_TO_DATA_FACTOR;
-          console.log((evt.evt.clientX - 30) / n, (evt.evt.clientY - 30) / n);
+          setPositionLabel(
+            `${(evt.evt.clientX - 30) / n} ${(evt.evt.clientY - 30) / n}`
+          );
         }}
       >
         <Layer>
           <Text text="Demo Map" fontSize={15} fill="white" />
+          <Text text={`${positionLabel}`} y={15} fontSize={15} fill="white" />
         </Layer>
         <Layer
           ref={layerRef}
-          offsetX={-MAP_OFFSET}
-          offsetY={-MAP_OFFSET}
+          offsetX={-INITIAL_MAP_OFFSET}
+          offsetY={-INITIAL_MAP_OFFSET}
           scaleX={MAP_TO_DATA_FACTOR}
           scaleY={MAP_TO_DATA_FACTOR}
         >
-          <Image scaleX={0.2} scaleY={0.2} image={image} />
+          <Image scaleX={0.1} scaleY={0.1} image={image} />
           {rooms.map((room, indexRoom) => (
             <Room
-              offset={offset}
               annotate={isAnnotationOn}
               key={room.name}
               room={room}
