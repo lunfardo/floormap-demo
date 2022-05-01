@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import AppStateContext from "../../contexts/AppStateContext";
+import RoomsContext from "../../contexts/RoomsContext";
 import useEvents from "../../hooks/useEvents";
-import useRooms from "../../hooks/useRooms";
 import Button from "../atoms/Button/Button";
 
 const EventList: React.FC = () => {
-  const [rooms] = useRooms();
+  const rooms = useContext(RoomsContext);
   const [{ selectedRoomName }] = useContext(AppStateContext);
   const room = rooms.find((room) => room.name === selectedRoomName);
   const [events] = useEvents(room?.name ?? null);

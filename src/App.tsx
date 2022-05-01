@@ -6,19 +6,22 @@ import RoomMenu from "./components/organisms/RoomMenu";
 import UserControls from "./components/organisms/UserControls";
 import Floormap from "./components/pages/Floormap";
 import AppStateProvider from "./providers/AppStateProvider";
+import RoomsProvider from "./providers/RoomsProvider";
 
 const App = () => {
   return (
     <AppStateProvider>
-      <>
-        <DebugMenu />
-        <Modal>
-          <EventList />
-        </Modal>
-        <Floormap />
-        <UserControls />
-        <RoomMenu />
-      </>
+      <RoomsProvider>
+        <>
+          <DebugMenu />
+          <Modal>
+            <EventList />
+          </Modal>
+          <Floormap />
+          <UserControls />
+          <RoomMenu />
+        </>
+      </RoomsProvider>
     </AppStateProvider>
   );
 };

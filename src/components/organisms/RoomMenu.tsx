@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import AppStateContext from "../../contexts/AppStateContext";
+import RoomsContext from "../../contexts/RoomsContext";
 import useRooms from "../../hooks/useRooms";
 import FloatMenu from "../atoms/FloatMenu/FloatMenu";
 
@@ -8,7 +9,7 @@ const RoomMenu: React.FC = () => {
     { selectedRoomName, isShowingRoomMenu, isShowingModalRoomInfo },
     setMapState,
   ] = useContext(AppStateContext);
-  const [rooms] = useRooms();
+  const rooms = useContext(RoomsContext);
   const selectedRoom = rooms.find((room) => room.name === selectedRoomName);
 
   useEffect(() => {
