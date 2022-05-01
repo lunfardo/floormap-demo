@@ -14,7 +14,10 @@ const MAP_TO_DATA_FACTOR = 2;
 
 const Floormap: React.FC = () => {
   const [windowDimensions] = useWindowsDimensions();
-  const [{ offset, isAnnotationOn }, setMapState] = useContext(AppStateContext);
+  const [
+    { offset, isAnnotationOn, isShowingCoordinates, isShowingWalls },
+    setMapState,
+  ] = useContext(AppStateContext);
   const [zoom] = useZoom();
   const layerRef = useRef<Konva.Layer>(null);
   const rooms = useContext(RoomsContext);
@@ -52,7 +55,9 @@ const Floormap: React.FC = () => {
       >
         <Layer>
           <Text text="Demo Map" fontSize={15} fill="white" />
-          <Text text={`${positionLabel}`} y={15} fontSize={15} fill="white" />
+          {isShowingCoordinates && (
+            <Text text={`${positionLabel}`} y={15} fontSize={15} fill="white" />
+          )}
         </Layer>
         <Layer
           ref={layerRef}
@@ -68,6 +73,7 @@ const Floormap: React.FC = () => {
               key={room.name}
               room={room}
               index={indexRoom}
+              visibleWalls={isShowingWalls}
               onClick={() => {
                 setMapState((mapState) => ({
                   ...mapState,

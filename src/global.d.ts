@@ -33,11 +33,11 @@ declare global {
 
   type MapState = {
     isAnnotationOn: boolean;
-    isShowingEvents: boolean;
     isShowingDebugMenu: boolean;
     isShowingModalRoomInfo: boolean;
     isShowingRoomMenu: boolean;
     isShowingCoordinates: boolean;
+    isShowingWalls: boolean;
     scale: number;
     offset: DiffPoint;
     selectedRoomName: string | null;

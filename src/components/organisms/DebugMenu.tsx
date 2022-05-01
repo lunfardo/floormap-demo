@@ -30,11 +30,33 @@ const DebugMenu: React.FC = () => {
         onClick={() =>
           setMapState((mapState) => ({
             ...mapState,
-            isShowingEvents: !mapState.isShowingEvents,
+            isShowingCoordinates: !mapState.isShowingCoordinates,
           }))
         }
       >
         Show coordinates
+      </Button>
+      <Button
+        type="button"
+        onClick={() =>
+          setMapState((mapState) => ({
+            ...mapState,
+            mapNumberOnDisplay: mapState.mapNumberOnDisplay === 1 ? 2 : 1,
+          }))
+        }
+      >
+        Toggle rooms
+      </Button>
+      <Button
+        type="button"
+        onClick={() =>
+          setMapState((mapState) => ({
+            ...mapState,
+            isShowingWalls: !mapState.isShowingWalls,
+          }))
+        }
+      >
+        Show walls
       </Button>
     </FloatMenu>
   );

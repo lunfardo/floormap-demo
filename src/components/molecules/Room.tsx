@@ -7,6 +7,7 @@ type RoomProps = {
   index: number;
   room: Room;
   annotate: boolean;
+  visibleWalls: boolean;
   onClick: () => void;
 };
 
@@ -14,12 +15,14 @@ const Room: React.FC<RoomProps> = ({
   index,
   room: { center, name, points, color, animations },
   annotate,
+  visibleWalls,
   onClick,
 }) => {
   const lineRef = React.useRef<Konva.Line>(null);
   const textRef: React.RefObject<Konva.Text> = useRef<Konva.Text>(null);
   const annotationTextWidth = textRef.current?.textWidth ?? 0;
   const annotationTextHight = textRef.current?.textHeight ?? 0;
+  const wallColor = visibleWalls ? color ?? "red" : "rgba(255,0,0,0)";
   const onPressWrapper = (event: KonvaEventObject<MouseEvent>) => {
     const shape = event.target;
 
@@ -35,7 +38,7 @@ const Room: React.FC<RoomProps> = ({
           strokeWidth: 0.5,
           fill: "rgba(255, 255, 0, 0)",
           zIndex: 2,
-          stroke: "red",
+          stroke: wallColor,
         });
       },
     });
@@ -77,7 +80,7 @@ const Room: React.FC<RoomProps> = ({
         id={`${index}`}
         points={points}
         closed
-        stroke={color ?? "red"}
+        stroke={wallColor}
         tension={0}
         onClick={onPressWrapper}
         onTap={onPressWrapper}

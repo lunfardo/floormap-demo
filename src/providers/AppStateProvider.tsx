@@ -8,12 +8,12 @@ type AppStateProviderProps = {
 const AppStateProvider: React.FC<AppStateProviderProps> = ({ children }) => {
   const [mapState, setMapState] = useState<MapState>({
     isAnnotationOn: false,
-    isShowingEvents: false,
     scale: 3,
     isShowingDebugMenu: false,
     isShowingModalRoomInfo: false,
     isShowingRoomMenu: false,
     isShowingCoordinates: true,
+    isShowingWalls: true,
     offset: {
       diffX: 0,
       diffY: 0,
