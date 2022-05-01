@@ -1,7 +1,6 @@
 import { useContext, useEffect } from "react";
 import AppStateContext from "../../contexts/AppStateContext";
 import RoomsContext from "../../contexts/RoomsContext";
-import useRooms from "../../hooks/useRooms";
 import FloatMenu from "../atoms/FloatMenu/FloatMenu";
 
 const RoomMenu: React.FC = () => {

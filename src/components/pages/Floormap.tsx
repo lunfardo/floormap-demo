@@ -86,7 +86,7 @@ const Floormap: React.FC = () => {
           scaleX={MAP_TO_DATA_FACTOR}
           scaleY={MAP_TO_DATA_FACTOR}
         >
-          {mapNumberOnDisplay == 2 && (
+          {mapNumberOnDisplay === 2 && (
             <Image scaleX={0.1} scaleY={0.1} image={image} />
           )}
           {rooms.map((room, indexRoom) => (
