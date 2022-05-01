@@ -1,7 +1,8 @@
 import Konva from "konva";
 import React, { useContext, useRef } from "react";
-import { Layer, Stage, Text } from "react-konva";
+import { Layer, Stage, Text, Image } from "react-konva";
 import AppStateContext from "../../contexts/AppStateContext";
+import useImage from "../../hooks/useImage.";
 import useRooms from "../../hooks/useRooms";
 import useUserTouch from "../../hooks/useUserTouch";
 import useWindowsDimensions from "../../hooks/useWindowsDimensions";
@@ -17,6 +18,7 @@ const Floormap: React.FC = () => {
   const [zoom] = useZoom();
   const layerRef = useRef<Konva.Layer>(null);
   const [rooms] = useRooms();
+  const [image] = useImage("/floormap-demo/map_picture.png");
 
   useUserTouch();
   return (
@@ -48,6 +50,7 @@ const Floormap: React.FC = () => {
           scaleX={MAP_TO_DATA_FACTOR}
           scaleY={MAP_TO_DATA_FACTOR}
         >
+          <Image scaleX={0.2} scaleY={0.2} image={image} />
           {rooms.map((room, indexRoom) => (
             <Room
               offset={offset}
