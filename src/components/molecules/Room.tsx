@@ -29,7 +29,7 @@ const Room: React.FC<RoomProps> = ({
     shape.to({
       fill: "rgba(255, 255, 0, 1)",
       strokeWidth: 1.5,
-      stroke: "white",
+      // stroke: "white",
       zIndex: 100,
       opacity: 0.5,
       onFinish: () => {
@@ -38,7 +38,7 @@ const Room: React.FC<RoomProps> = ({
           strokeWidth: wallWidth ?? 0.5,
           fill: "rgba(255, 255, 0, 0)",
           zIndex: 2,
-          stroke: wallColor,
+          // stroke: wallColor,
         });
       },
     });
