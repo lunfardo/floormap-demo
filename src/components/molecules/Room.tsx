@@ -53,11 +53,11 @@ const Room: React.FC<RoomProps> = ({
           fill: "white",
           onFinish: () => {
             lineRef.current?.to({
-              fill: null,
+              fill: "rgba(255, 255, 255, 0)",
             });
           },
         });
-      }, 2000);
+      }, 4000);
       return () => clearInterval(interval);
     }
   }, [animations]);
