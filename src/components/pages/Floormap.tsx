@@ -1,5 +1,12 @@
 import Konva from "konva";
-import React, { useContext, useEffect, useRef, useState } from "react";
+import { KonvaEventObject } from "konva/lib/Node";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { Layer, Stage, Text, Image } from "react-konva";
 import AppStateContext from "../../contexts/AppStateContext";
 import RoomsContext from "../../contexts/RoomsContext";
@@ -15,9 +22,16 @@ const MAP_TO_DATA_FACTOR = 2;
 const Floormap: React.FC = () => {
   const [windowDimensions] = useWindowsDimensions();
   const [
-    { offset, isAnnotationOn, isShowingCoordinates, isShowingWalls },
+    {
+      offset,
+      isAnnotationOn,
+      isShowingCoordinates,
+      isShowingWalls,
+      mapNumberOnDisplay,
+    },
     setMapState,
   ] = useContext(AppStateContext);
+  useUserTouch();
   const [zoom] = useZoom();
   const layerRef = useRef<Konva.Layer>(null);
   const rooms = useContext(RoomsContext);
@@ -31,7 +45,18 @@ const Floormap: React.FC = () => {
     });
   }, [offset]);
 
-  useUserTouch();
+  const onMouseMove = useCallback(
+    (evt: KonvaEventObject<MouseEvent>) => {
+      const n = zoom + MAP_TO_DATA_FACTOR;
+      const xOffset = INITIAL_MAP_OFFSET - (layerRef.current?.x() ?? 0);
+      const yOffset = INITIAL_MAP_OFFSET - (layerRef.current?.y() ?? 0);
+      const xPos = Math.trunc(evt.evt.clientX / n - xOffset);
+      const yPos = Math.trunc(evt.evt.clientY / n - yOffset);
+      setPositionLabel(`${xPos} ${yPos}`);
+    },
+    [zoom]
+  );
+
   return (
     <div
       className="App"
@@ -46,12 +71,7 @@ const Floormap: React.FC = () => {
         scaleY={zoom}
         width={windowDimensions.width}
         height={windowDimensions.height}
-        onMouseMove={(evt) => {
-          const n = zoom + MAP_TO_DATA_FACTOR;
-          setPositionLabel(
-            `${(evt.evt.clientX - 30) / n} ${(evt.evt.clientY - 30) / n}`
-          );
-        }}
+        onMouseMove={onMouseMove}
       >
         <Layer>
           <Text text="Demo Map" fontSize={15} fill="white" />
@@ -66,7 +86,9 @@ const Floormap: React.FC = () => {
           scaleX={MAP_TO_DATA_FACTOR}
           scaleY={MAP_TO_DATA_FACTOR}
         >
-          <Image scaleX={0.1} scaleY={0.1} image={image} />
+          {mapNumberOnDisplay == 2 && (
+            <Image scaleX={0.1} scaleY={0.1} image={image} />
+          )}
           {rooms.map((room, indexRoom) => (
             <Room
               annotate={isAnnotationOn}

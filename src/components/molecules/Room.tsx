@@ -13,7 +13,7 @@ type RoomProps = {
 
 const Room: React.FC<RoomProps> = ({
   index,
-  room: { center, name, points, color, animations },
+  room: { center, name, points, color, animations, wallWidth },
   annotate,
   visibleWalls,
   onClick,
@@ -35,7 +35,7 @@ const Room: React.FC<RoomProps> = ({
       onFinish: () => {
         shape.to({
           opacity: 1,
-          strokeWidth: 0.5,
+          strokeWidth: wallWidth ?? 0.5,
           fill: "rgba(255, 255, 0, 0)",
           zIndex: 2,
           stroke: wallColor,
@@ -72,7 +72,7 @@ const Room: React.FC<RoomProps> = ({
         y={center.y - annotationTextHight / 2}
         text={name}
         fontSize={2}
-        fill="yellow"
+        fill="green"
       />
       <Line
         key={index}
@@ -84,7 +84,7 @@ const Room: React.FC<RoomProps> = ({
         tension={0}
         onClick={onPressWrapper}
         onTap={onPressWrapper}
-        strokeWidth={0.5}
+        strokeWidth={wallWidth ?? 0.5}
       />
     </>
   );

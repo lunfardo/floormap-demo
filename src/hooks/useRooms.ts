@@ -9,6 +9,7 @@ type RoomSource =
       width: number;
       animations?: Array<"eventAboutToHappen" | "somethingElse">;
       color?: string;
+      wallWidth?: number;
     }
   | {
       name: string;
@@ -18,6 +19,7 @@ type RoomSource =
       diffPoints: Array<DiffPoint>;
       animations?: Array<"eventAboutToHappen" | "somethingElse">;
       color?: string;
+      wallWidth?: number;
     };
 
 const calculateCenterRectangle = (
@@ -57,6 +59,7 @@ const useRooms = (roomsFile: string): [Array<Room>] => {
           rooms.push({
             name: rawRoom.name,
             color: rawRoom.color,
+            wallWidth: rawRoom.wallWidth,
             animations: rawRoom?.animations ?? [],
             center: {
               x: rawRoom.center.x,
@@ -69,6 +72,7 @@ const useRooms = (roomsFile: string): [Array<Room>] => {
           rooms.push({
             name: rawRoom.name,
             color: rawRoom.color,
+            wallWidth: rawRoom.wallWidth,
             animations: rawRoom?.animations ?? [],
             center: calculateCenterRectangle(
               {
