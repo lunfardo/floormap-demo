@@ -1,27 +1,22 @@
 import Konva from "konva";
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { Layer, Stage, Text } from "react-konva";
 import AppStateContext from "../../contexts/AppStateContext";
 import useRooms from "../../hooks/useRooms";
 import useUserTouch from "../../hooks/useUserTouch";
-import useWheelScroll from "../../hooks/useWheelScroll";
 import useWindowsDimensions from "../../hooks/useWindowsDimensions";
+import useZoom from "../../hooks/useZoom";
 import Room from "../molecules/Room";
+
+const MAP_OFFSET = 30;
+const MAP_TO_DATA_FACTOR = 2;
 
 const Floormap: React.FC = () => {
   const [windowDimensions] = useWindowsDimensions();
-  const [{ offset, scale, isAnnotationOn }, setMapState] =
-    useContext(AppStateContext);
-  const [wheelpos] = useWheelScroll();
+  const [{ offset, isAnnotationOn }, setMapState] = useContext(AppStateContext);
+  const [zoom] = useZoom();
   const layerRef = useRef<Konva.Layer>(null);
-
   const [rooms] = useRooms();
-  useEffect(() => {
-    layerRef.current?.to({
-      x: layerRef.current.x() + offset.diffX,
-      y: layerRef.current.y() + offset.diffY,
-    });
-  }, [offset]);
 
   useUserTouch();
   return (
@@ -34,15 +29,25 @@ const Floormap: React.FC = () => {
       }}
     >
       <Stage
-        scaleX={scale + wheelpos / 1000}
-        scaleY={scale + wheelpos / 1000}
+        scaleX={zoom}
+        scaleY={zoom}
         width={windowDimensions.width}
         height={windowDimensions.height}
+        onMouseMove={(evt) => {
+          const n = zoom + MAP_TO_DATA_FACTOR;
+          console.log((evt.evt.clientX - 30) / n, (evt.evt.clientY - 30) / n);
+        }}
       >
         <Layer>
           <Text text="Demo Map" fontSize={15} fill="white" />
         </Layer>
-        <Layer ref={layerRef} offsetX={-30} offsetY={-30} scaleX={2} scaleY={2}>
+        <Layer
+          ref={layerRef}
+          offsetX={-MAP_OFFSET}
+          offsetY={-MAP_OFFSET}
+          scaleX={MAP_TO_DATA_FACTOR}
+          scaleY={MAP_TO_DATA_FACTOR}
+        >
           {rooms.map((room, indexRoom) => (
             <Room
               offset={offset}
