@@ -42,6 +42,7 @@ const Floormap: React.FC = () => {
     layerRef.current?.to({
       x: layerRef.current.x() + offset.diffX,
       y: layerRef.current.y() + offset.diffY,
+      duration: 0.1,
     });
   }, [offset]);
 

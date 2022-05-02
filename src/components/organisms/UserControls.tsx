@@ -1,11 +1,17 @@
-import { useCallback, useContext } from "react";
+import { useCallback, useContext, useEffect } from "react";
 import AppStateContext from "../../contexts/AppStateContext";
+import useGlobalKeyPress from "../../hooks/useGlobalKeyPress";
 import ArrowButton from "../atoms/ArrowButton/ArrowButton";
 import Button from "../atoms/Button/Button";
 import FloatMenu from "../atoms/FloatMenu/FloatMenu";
 
+let isLock = false;
+
 const UserControls = () => {
   const [{ isShowingModalRoomInfo }, setMapState] = useContext(AppStateContext);
+  const [keyPressed] = useGlobalKeyPress();
+
+  // const [isLock, setIsLock] = useState(false);
   const setNewOffset = useCallback(
     (newOffset: DiffPoint) => {
       setMapState((mapState) => ({ ...mapState, offset: newOffset }));
@@ -22,6 +28,33 @@ const UserControls = () => {
     },
     [setMapState]
   );
+
+  const setNewOffsetTimeout = useCallback(
+    (newOffset: DiffPoint) => {
+      if (isLock) return;
+      isLock = true;
+      setNewOffset(newOffset);
+      setTimeout(() => {
+        isLock = false;
+      }, 150);
+    },
+    [setNewOffset]
+  );
+
+  useEffect(() => {
+    if (keyPressed === "ArrowLeft") {
+      setNewOffsetTimeout({ diffX: -20, diffY: 0 });
+    }
+    if (keyPressed === "ArrowRight") {
+      setNewOffsetTimeout({ diffX: 20, diffY: 0 });
+    }
+    if (keyPressed === "ArrowDown") {
+      setNewOffsetTimeout({ diffX: 0, diffY: 20 });
+    }
+    if (keyPressed === "ArrowUp") {
+      setNewOffsetTimeout({ diffX: 0, diffY: -20 });
+    }
+  }, [keyPressed, setNewOffsetTimeout]);
 
   if (isShowingModalRoomInfo) {
     return null;
@@ -44,7 +77,9 @@ const UserControls = () => {
             gridColumnStart: 2,
             gridRow: 1,
           }}
-          onClick={() => setNewOffset({ diffX: 0, diffY: -20 })}
+          onClick={() => {
+            setNewOffsetTimeout({ diffX: 0, diffY: -20 });
+          }}
         />
         <ArrowButton
           direction="down"
@@ -52,7 +87,7 @@ const UserControls = () => {
             gridColumnStart: 2,
             gridRow: 2,
           }}
-          onClick={() => setNewOffset({ diffX: 0, diffY: 20 })}
+          onClick={() => setNewOffsetTimeout({ diffX: 0, diffY: 20 })}
         ></ArrowButton>
         <ArrowButton
           direction="left"
@@ -60,7 +95,7 @@ const UserControls = () => {
             gridColumnStart: 1,
             gridRow: 2,
           }}
-          onClick={() => setNewOffset({ diffX: -20, diffY: 0 })}
+          onClick={() => setNewOffsetTimeout({ diffX: -20, diffY: 0 })}
         ></ArrowButton>
         <ArrowButton
           direction="right"
@@ -68,7 +103,7 @@ const UserControls = () => {
             gridColumnStart: 3,
             gridRow: 2,
           }}
-          onClick={() => setNewOffset({ diffX: 20, diffY: 0 })}
+          onClick={() => setNewOffsetTimeout({ diffX: 20, diffY: 0 })}
         ></ArrowButton>
       </div>
       <Button onClick={() => document.documentElement.requestFullscreen()}>

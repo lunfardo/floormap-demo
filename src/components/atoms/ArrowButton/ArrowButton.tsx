@@ -7,7 +7,7 @@ interface ArrowButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const ArrowButton: React.FC<ArrowButtonProps> = ({ direction, ...props }) => {
   return (
-    <button className="arrow-button" {...props}>
+    <button type="button" className="arrow-button" {...props}>
       <i className={`arrow arrow-${direction}`}></i>
     </button>
   );
