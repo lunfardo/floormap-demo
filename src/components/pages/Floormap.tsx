@@ -15,6 +15,7 @@ import useUserTouch from "../../hooks/useUserTouch";
 import useWindowsDimensions from "../../hooks/useWindowsDimensions";
 import useZoom from "../../hooks/useZoom";
 import Room from "../molecules/Room";
+import Lightning from "../overlays/Lightning";
 
 const INITIAL_MAP_OFFSET = 30;
 const MAP_TO_DATA_FACTOR = 2;
@@ -27,6 +28,7 @@ const Floormap: React.FC = () => {
       isAnnotationOn,
       isShowingCoordinates,
       isShowingWalls,
+      isShowingDebugMenu,
       mapNumberOnDisplay,
     },
     setMapState,
@@ -82,6 +84,13 @@ const Floormap: React.FC = () => {
         </Layer>
         <Layer
           ref={layerRef}
+          clipWidth={300}
+          onDblTap={() => {
+            setMapState((mapState) => ({
+              ...mapState,
+              isShowingDebugMenu: !mapState.isShowingDebugMenu,
+            }));
+          }}
           offsetX={-INITIAL_MAP_OFFSET}
           offsetY={-INITIAL_MAP_OFFSET}
           scaleX={MAP_TO_DATA_FACTOR}
@@ -106,6 +115,19 @@ const Floormap: React.FC = () => {
               }}
             />
           ))}
+        </Layer>
+        <Layer
+          offsetX={-INITIAL_MAP_OFFSET}
+          offsetY={-INITIAL_MAP_OFFSET}
+          listening={false}
+        >
+          {isShowingDebugMenu && (
+            <Lightning
+              //TODO: Make layers dimensions closer to the actual map dimensions
+              height={230}
+              width={300}
+            />
+          )}
         </Layer>
       </Stage>
     </div>
