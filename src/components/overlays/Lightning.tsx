@@ -10,10 +10,6 @@ type LightningProps = {
   lightningWidth?: number;
 };
 
-function delay(time: number) {
-  return new Promise((resolve) => setTimeout(resolve, time));
-}
-
 const Lightning: React.FC<LightningProps> = ({
   height,
   width,
